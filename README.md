@@ -61,3 +61,11 @@ Aplicar técnicas de **aprendizaje supervisado** para construir y evaluar modelo
 
 ---
 
+## 🚀 Cómo Ejecutar el Proyecto
+
+1. Clonar el repositorio:
+
+```bash
+git clone https://github.com/MarianaIR/Machine-Learning-Lidiando-con-datos-de-muchas-Dimensiones.git
+
+
