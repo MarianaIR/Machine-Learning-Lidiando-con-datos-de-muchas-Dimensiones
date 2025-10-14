@@ -1,71 +1,55 @@
-# 📊 Machine Learning: Lidiando con Datos de Muchas Dimensiones
+# 📉 MACHINE LEARNING: LIDIANDO CON DATOS DE MUCHAS DIMENSIONES
 
-[![Python](https://img.shields.io/badge/Python-3670A0?style=flat&logo=python&logoColor=ffdd54)](https://www.python.org/)
-[![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white)](https://numpy.org/)
+[![Python](https://img.shields.io/badge/Python-3670A0?style=flat&logo=python&logoColor=ffdd54)](https://www.python.org/)  
+[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=flat&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)  
+[![NumPy](https://img.shields.io/badge/NumPy-013243?style=flat&logo=numpy&logoColor=white)](https://numpy.org/)  
 [![Pandas](https://img.shields.io/badge/Pandas-150458?style=flat&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
-[![Scikit-learn](https://img.shields.io/badge/Scikit--learn-F7931E?style=flat&logo=scikit-learn&logoColor=white)](https://scikit-learn.org/)
-[![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=flat&logo=matplotlib&logoColor=white)](https://matplotlib.org/)
-[![Seaborn](https://img.shields.io/badge/Seaborn-0099CC?style=flat&logo=seaborn&logoColor=white)](https://seaborn.pydata.org/)
 
-Este proyecto aborda el desafío de trabajar con datos de alta dimensionalidad en el contexto de **aprendizaje supervisado**. Se implementan técnicas avanzadas para la reducción de dimensionalidad y la selección de características, utilizando la librería `scikit-learn` en Python.
+Este proyecto aborda la problemática de la **Alta Dimensionalidad** en Machine Learning, donde un dataset posee un gran número de *features* (columnas). El objetivo es aplicar y comprender la técnica de **Reducción de Dimensionalidad** para transformar los datos a un espacio dimensional menor, manteniendo las propiedades originales esenciales, lo que se conoce como **Dimensión Intrínseca**.
 
 ---
 
 ## 🧠 Contenido del Proyecto
 
-### 1️⃣ Análisis Exploratorio de Datos (EDA)
-- Inspección y limpieza de datos
-- Identificación de variables independientes (features) y dependientes (target)
-- Visualización de correlaciones mediante gráficos
+### 1️⃣ El Problema de la Alta Dimensionalidad
+- **Contexto:** Se utiliza un dataset ficticio llamado `aluracare.csv` (adaptado de un dataset real de cáncer de mama de Kaggle) que contiene muchas características o dimensiones.
+- **La Maldición de la Dimensionalidad:** Cuando el número de *features* es muy grande, los modelos de Machine Learning pueden volverse ineficientes, lentos e incluso propensos al sobreajuste (*overfitting*). Reducir la dimensionalidad es clave para mejorar el rendimiento.
 
-### 2️⃣ Reducción de Dimensionalidad
-- Aplicación de técnicas como:
-  - **PCA (Análisis de Componentes Principales)**: reduce la dimensionalidad manteniendo la mayor varianza posible.
-  - **t-SNE (t-Distributed Stochastic Neighbor Embedding)**: utilizado para la visualización de datos de alta dimensión en 2D o 3D.
-- Evaluación del impacto de la reducción de dimensionalidad en el rendimiento del modelo
+### 2️⃣ Estrategias de Reducción de Dimensionalidad
+El *notebook* explora diversas técnicas para lidiar con el alto número de dimensiones:
 
-### 3️⃣ Implementación de Modelos de Clasificación
-- División de datos en conjuntos de **entrenamiento** y **prueba**
-- Entrenamiento de modelos de clasificación utilizando algoritmos como:
-  - Regresión logística
-  - K-Vecinos más cercanos (KNN)
-  - Máquinas de soporte vectorial (SVM)
-- Evaluación del rendimiento utilizando métricas como precisión, recall, F1-score y matriz de confusión
+#### A. Selección de Features (Filtrado)
+- Se utiliza el clasificador **Random Forest** para calcular la **Importancia de las Variables**.
+- El objetivo es **filtrar** y quedarnos solo con las variables que tienen un mayor poder predictivo sobre la etiqueta de salida.
 
-### 4️⃣ Selección de Características
-- Identificación de las características más relevantes para el modelo
-- Aplicación de técnicas de selección de características automáticas utilizando `scikit-learn`
+#### B. Extracción de Features (PCA)
+- **Análisis de Componentes Principales (PCA):** Es la técnica principal de extracción.
+- **Mecánica:** PCA identifica los ejes (componentes principales) que capturan la mayor varianza de los datos. Permite proyectar el dataset original en un nuevo subespacio con menos dimensiones.
+- **Ventaja:** Permite pasar, por ejemplo, de 10 *features* a solo 2 o 3, simplificando el modelo sin perder información crucial.
+
+### 3️⃣ Aplicación Práctica con SKLearn
+- Se utilizan las utilidades de **Scikit-learn** para implementar tanto la Selección de Features como las transformaciones de **PCA**.
+- La reducción de dimensionalidad es un paso fundamental en el **Preprocesamiento de Datos** para garantizar que el modelo de Machine Learning final sea eficiente, interpretable y generalice mejor.
 
 ---
 
 ## 🛠️ Librerías Utilizadas
-| Librería       | Uso principal                               |
+
+| Librería       | Uso principal                               |
 |----------------|---------------------------------------------|
-| **NumPy**      | Cálculos numéricos y manipulación de arrays |
-| **Pandas**     | Manipulación y análisis de datos tabulares  |
-| **Scikit-learn** | Implementación de modelos de clasificación y técnicas de reducción de dimensionalidad |
-| **Matplotlib** | Creación de gráficos estáticos              |
-| **Seaborn**    | Visualización de datos y análisis exploratorio |
+| **Scikit-learn**| Implementación de PCA y modelos para determinar la Importancia de Variables|
+| **Pandas**     | Carga y manipulación del dataset (`aluracare.csv`)|
+| **NumPy**      | Operaciones numéricas subyacentes (inferido) |
 
 ---
 
 ## 🎯 Objetivo del Proyecto
-Aplicar técnicas de **aprendizaje supervisado** para construir y evaluar modelos de clasificación que permitan predecir categorías o clases en función de variables independientes, utilizando datos de alta dimensionalidad. Se implementan métodos de reducción de dimensionalidad y selección de características para mejorar el rendimiento del modelo.
+Capacitar al usuario para identificar y resolver el problema de la **Alta Dimensionalidad** en Data Science. El proyecto enseña las diferencias y aplicaciones prácticas de la **Selección de Features** y la **Extracción de Features (PCA)**, permitiendo construir modelos de Machine Learning más robustos, rápidos y precisos.
 
 ---
 
-## 📈 Resultados Esperados
-- Desarrollo de modelos de clasificación con capacidad de generalización
-- Evaluación del impacto de la reducción de dimensionalidad en el rendimiento del modelo
-- Identificación de las características más relevantes para la predicción
-
----
-
-## 🚀 Cómo Ejecutar el Proyecto
-
-1. Clonar el repositorio:
-
-```bash
-git clone https://github.com/MarianaIR/Machine-Learning-Lidiando-con-datos-de-muchas-Dimensiones.git
-
+## 📈 Resultados Clave
+- Se demuestra cómo el **Análisis de Componentes Principales (PCA)** transforma un dataset complejo a una representación bidimensional o tridimensional más simple.
+- Se identifica la **Dimensión Intrínseca** del dataset, es decir, el número óptimo de *features* necesarias para representar la información de manera eficiente.
+- El proceso resulta en un conjunto de datos preprocesado y optimizado, listo para ser utilizado en cualquier modelo predictivo con menor riesgo de sobreajuste.
 
